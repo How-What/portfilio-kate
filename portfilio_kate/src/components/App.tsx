@@ -1,9 +1,12 @@
 import './App.css'
-import {useState} from 'react'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import HeaderHome from './header/HeaderHome'
-import StampButton from './buttons/StampButton'
-import StampType from '../enum/Stamps'
+
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
+
+import ComissionsPage from './pages/comissions/Commisions'
+import PassengerPrincessLifePage from './pages/passenger_princess_life/PassenPrincessLife'
+import FanartPage from './pages/fanart/Fanart'
+import PetPortraitPage from './pages/pet_portraits/PetPortaits'
+import Home from './pages/home/Home'
 
 
 function App() {
@@ -11,24 +14,15 @@ function App() {
     return (
         <BrowserRouter>
         <div>
-            <HeaderHome/>
-            <div className="container mx-auto">
-                <div className="btn-layout">
-                    <Link to='/petportraits'><StampButton label={StampType.PET_PORTRAIT} onClick={() => {}}/></Link>
-                    
-                    <StampButton label={StampType.PET_PORTRAIT} onClick={() => {}}/>
-                    <StampButton label={StampType.PET_PORTRAIT} onClick={() => {}}/>
-                    <StampButton label={StampType.PET_PORTRAIT} onClick={() => {}}/>
-                </div>
-            </div>
+            <Home></Home>
         </div>
         
         <Routes>
-            <Route path="/" element={<></>} />
-            <Route path="/petportraits" element={<></>}/>
-            <Route path="/fanart" element={<></>}/>
-            <Route path="/passengerprincesslife" element={<></>}/>
-            <Route path="/comissions" element={<></>}/>
+            <Route path="/" element={<Home/>} />
+            <Route path="/petportraits" element={<PetPortraitPage/>}/>
+            <Route path="/fanart" element={<FanartPage/>}/>
+            <Route path="/passengerprincesslife" element={<PassengerPrincessLifePage/>}/>
+            <Route path="/comissions" element={<ComissionsPage/>}/>
         </Routes>
         </BrowserRouter>
     )

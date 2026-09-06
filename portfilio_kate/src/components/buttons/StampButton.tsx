@@ -12,7 +12,7 @@ function StampButton({ label, onClick, addcss }: StampButtonProps) {
   const [scale, setScale] = useState({ x: 1 });
   const [shadow, setShadow] = useState({ opacity: 0 });
 
-  function select_stamp_image(label: (typeof StampType) [keyof typeof StampType]) {
+  function select_stamp_image(label?: (typeof StampType)[keyof typeof StampType]) {
     switch (label) {
       case StampType.PET_PORTRAIT:
         return PetPortrait;
