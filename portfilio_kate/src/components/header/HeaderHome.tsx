@@ -1,11 +1,45 @@
 import SocialIcons from "./social-icons/SocialIcons";
 import {NameBanner} from '../../assets/assets'
+import { useLocation } from "react-router-dom";
+import { PostageSquiggly } from "../../assets/assets";
 
-type HeaderProps = {
-    route?:string;
-}
 
 function HeaderHome() {
+    const location = useLocation();
+
+    const aboutme = (
+        <>
+            <p className="text-2xl col-span-1 row justify-end font-bold">
+                About Me
+            </p>
+            <p className="text-base col-span-1 row justify-end">
+                Kate is the very best, Kate is the greatest. Like no one ever was.
+            </p>  
+        </>
+          
+    );
+
+    const petPortraits = (
+        <>
+            <h1 className="text-2xl col-span-1 row font-bold text-center">
+                Pet Portraits
+            </h1>
+            <img src={PostageSquiggly}></img>
+        </>
+    );
+
+    function getNextToStamp(location: ReturnType<typeof useLocation>){
+        switch (location.pathname){
+            case "/":
+                return aboutme
+            case "/petportraits":
+                return petPortraits
+            default:
+                return aboutme
+        }
+    }
+    
+
 	return (
         <div>
             <div className="grid grid-cols-8 grid-row-2 gap-4 mt-20 mx-20">
@@ -31,18 +65,13 @@ function HeaderHome() {
                 </div>
                 <div className="col-span-2 flex justify-center items-center">
                 <div className="grid grid-cols-1 grid-row-2">
-                        <p className="text-2xl col-span-1 row justify-end font-bold">
-                            About me
-                        </p>
-                        <p className="text-base col-span-1 row justify-end">
-                            Kate is the very best, Kate is the greatest. Like no one ever was.
-                        </p>    
+                        {getNextToStamp(location)}
                 </div>
                 </div>   
             </div>
              <div className="absolute top-10 right-10 m-10">
                     <div className="box-border h-40 w-30 border-4 border-gray-300 text-center">
-                        <p className="mt-[33%] text-lg font-mono">postage required</p>
+                        <p className="mt-[33%] text-lg font-mono">postage required {location.pathname}</p>
                     </div>
                 </div>
         </div>

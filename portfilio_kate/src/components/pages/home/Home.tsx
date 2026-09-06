@@ -10,11 +10,14 @@ function Home (){
             <HeaderHome/>
             <div className="container mx-auto">
                 <div className="btn-layout">
-                    <Link to='/petportraits'><StampButton label={StampType.PET_PORTRAIT} onClick={() => {}}/></Link>
-                    
-                    <StampButton label={StampType.PET_PORTRAIT} onClick={() => {}}/>
-                    <StampButton label={StampType.PET_PORTRAIT} onClick={() => {}}/>
-                    <StampButton label={StampType.PET_PORTRAIT} onClick={() => {}}/>
+                    <Link to='/petportraits'>
+                        <StampButton label={StampType.PET_PORTRAIT} onClick={() => {}}/></Link>
+                    <Link to='/fanart'>
+                        <StampButton label={StampType.FANART} onClick={() => {}}/></Link>
+                    <Link to='/passengerprincesslife'>
+                        <StampButton label={StampType.PPLIFE} onClick={() => {}}/></Link>
+                    <Link to='/comissions'>
+                        <StampButton label={StampType.COMISSIONS} onClick={() => {}}/></Link>                    
                 </div>
             </div>
         </>
