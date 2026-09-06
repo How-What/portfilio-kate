@@ -1,9 +1,9 @@
 import { useState } from 'react';
-
+import StampType from '../../enum/Stamps';
 import { Comissions, PetPortrait, Fanart, PPLife } from '../../assets/assets';
 
 type StampButtonProps = {
-  label?: string;
+  label?: (typeof StampType)[keyof typeof StampType];
   onClick: () => void;
   addcss?: string;
 };
@@ -12,15 +12,15 @@ function StampButton({ label, onClick, addcss }: StampButtonProps) {
   const [scale, setScale] = useState({ x: 1 });
   const [shadow, setShadow] = useState({ opacity: 0 });
 
-  function select_stamp_image(label: string | undefined) {
-    switch (label?.toLowerCase()) {
-      case 'illustrations':
+  function select_stamp_image(label: (typeof StampType) [keyof typeof StampType]) {
+    switch (label) {
+      case StampType.PET_PORTRAIT:
         return PetPortrait;
-      case 'fanart':
+      case StampType.FANART:
         return Fanart;
-      case 'comissions':
+      case StampType.COMISSIONS:
         return Comissions;
-      case 'pplife':
+      case StampType.PPLIFE:
         return PPLife
       default:
         return PetPortrait;
