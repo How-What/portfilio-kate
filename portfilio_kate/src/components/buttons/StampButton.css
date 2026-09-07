@@ -1,0 +1,49 @@
+.stamp-moving {
+	animation: stamp-to-postage 500ms ease-in forwards;
+	pointer-events: none;
+}
+
+.postage-hidden {
+  animation: postage-fade-out 500ms ease-in forwards;
+}
+
+@keyframes postage-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+/* @keyframes stamp-to-postage {
+	to {
+		transform: translate(var(--stamp-x), var(--stamp-y)) scale(var(--stamp-scale)) rotate(12deg);
+		opacity: 1;
+	}
+} */
+
+@keyframes stamp-to-postage {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+
+  10% {
+    transform: translate(20px, -30px) scale(1.05) rotate(12deg);
+  }
+
+  50% {
+    transform: translate(var(--stamp-x), var(--stamp-y)) scale(0.8);
+  }
+
+  80% {
+    transform: translate(var(--stamp-x), var(--stamp-y)) 
+        scale(0.8)
+        rotate(-12deg);
+  }
+
+  100% {
+    transform: translate(var(--stamp-x), var(--stamp-y))
+      scale(var(--stamp-scale));
+    opacity: 1;
+    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+  }
+}

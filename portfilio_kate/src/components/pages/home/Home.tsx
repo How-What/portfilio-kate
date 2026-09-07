@@ -1,23 +1,27 @@
+import { useState } from "react";
 import StampButton from "../../buttons/StampButton";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import StampType from "../../../enum/Stamps";
 import HeaderHome from "../../header/HeaderHome";
 
 
 function Home (){
+    const navigate = useNavigate();
+    const [isPostageHidden, setIsPostageHidden] = useState(false);
+
+    function handleStampStart() {
+        setIsPostageHidden(true);
+    }
+
     return (
         <>
-            <HeaderHome/>
             <div className="container mx-auto">
-                <div className="btn-layout">
-                    <Link to='/petportraits'>
-                        <StampButton label={StampType.PET_PORTRAIT} onClick={() => {}}/></Link>
-                    <Link to='/fanart'>
-                        <StampButton label={StampType.FANART} onClick={() => {}}/></Link>
-                    <Link to='/passengerprincesslife'>
-                        <StampButton label={StampType.PPLIFE} onClick={() => {}}/></Link>
-                    <Link to='/comissions'>
-                        <StampButton label={StampType.COMISSIONS} onClick={() => {}}/></Link>                    
+                <HeaderHome isPostageHidden={isPostageHidden}/>
+                <div className="btn-layout mt-15">
+                    <StampButton label={StampType.PET_PORTRAIT} onStart={handleStampStart} onClick={() => navigate('/petportraits')}/>
+                    <StampButton label={StampType.FANART} onStart={handleStampStart} onClick={() => navigate('/fanart')}/>
+                    <StampButton label={StampType.PPLIFE} onStart={handleStampStart} onClick={() => navigate('/passengerprincesslife')}/>
+                    <StampButton label={StampType.COMISSIONS} onStart={handleStampStart} onClick={() => navigate('/comissions')}/>
                 </div>
             </div>
         </>

@@ -2,12 +2,14 @@ import HeaderHome from "../../header/HeaderHome"
 
 function ComissionsPage (){
     return(
-        <>
-        <HeaderHome/>
-        <h1>
-            Comissions page
-        </h1>
-        </>
+        <div className="container mx-auto">
+            <HeaderHome/>
+            <div className="mt-15">
+                <h1>
+                    Comissions
+                </h1>
+            </div>
+        </div>
     )
 }
 
