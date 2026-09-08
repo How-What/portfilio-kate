@@ -1,7 +1,7 @@
 import SocialIcons from "./social-icons/SocialIcons";
 import {NameBanner} from '../../assets/assets'
 import { useLocation } from "react-router-dom";
-import { PostageSquiggly, PetPortrait } from "../../assets/assets";
+import { PostageSquiggly, PetPortrait, Comissions, Fanart, PPLife } from "../../assets/assets";
 
 type HeaderHomeProps = {
     isPostageHidden?: boolean;
@@ -71,6 +71,24 @@ function HeaderHome({ isPostageHidden }: HeaderHomeProps) {
         </>
     );
 
+    const comissionsStamp = (
+        <>
+            <img src={Comissions} alt="petportrait Stamp" />
+        </>
+    );
+
+    const fanartStamp = (
+        <>
+            <img src={Fanart} alt="petportrait Stamp" />
+        </>
+    );
+
+    const ppLifeStamp = (
+        <>
+            <img src={PPLife} alt="petportrait Stamp" />
+        </>
+    );
+
     const LOCATION = {
         HOME :'/',
         PET_PORTRAITS : '/petportraits',
@@ -102,13 +120,13 @@ function HeaderHome({ isPostageHidden }: HeaderHomeProps) {
             case LOCATION.PET_PORTRAITS:
                 return petPortraitsStamp
             case LOCATION.FANART:
-                return fanArt
+                return fanartStamp
             case LOCATION.COMISSIONS:
-                return comissions
+                return comissionsStamp
             case LOCATION.PPLIFE:
-                return pplife
+                return ppLifeStamp
             default:
-                return aboutme
+                return noStamp
         }
     }
     

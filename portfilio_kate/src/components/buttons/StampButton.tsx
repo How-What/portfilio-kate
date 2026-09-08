@@ -63,7 +63,7 @@ function StampButton({ label, onClick, onStart, addcss }: StampButtonProps) {
     setMovement({
       x: `${frame.left + frame.width / 2 - (stamp.left + stamp.width / 2)}px`,
       y: `${frame.top + frame.height / 2 - (stamp.top + stamp.height / 2) + 5}px`,
-      scale: Math.min(frame.width / stamp.width, frame.height / stamp.height) + .035,
+      scale: Math.min(frame.width / stamp.width, frame.height / stamp.height) + .033,
     });
     onStart?.(label);
     setIsMoving(true);
