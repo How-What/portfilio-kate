@@ -67,7 +67,7 @@ function StampButton({ label, onClick, onStart, addcss }: StampButtonProps) {
     });
     onStart?.(label);
     setIsMoving(true);
-    window.setTimeout(onClick, 670);
+    window.setTimeout(onClick, 470);
   }
 
   return (

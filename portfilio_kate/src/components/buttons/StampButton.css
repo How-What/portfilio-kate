@@ -1,10 +1,10 @@
 .stamp-moving {
-	animation: stamp-to-postage 500ms ease-in forwards;
+	animation: stamp-to-postage 300ms ease-in forwards;
 	pointer-events: none;
 }
 
 .postage-hidden {
-  animation: postage-fade-out 500ms ease-in forwards;
+  animation: postage-fade-out 300ms ease-in forwards;
 }
 
 @keyframes postage-fade-out {
