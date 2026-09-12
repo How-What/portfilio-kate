@@ -10,40 +10,42 @@ function SideNav() {
         const locations: string[] = [];
         const values = Object.values(LOCATION);
 
-        values.forEach( (value) =>
-        {
-            console.log(value)
-            if (value != location.pathname){
-                locations.push( value )
+        values.forEach((value) => {
+            if (value !== location.pathname) {
+                locations.push(value)
             }
-            
         });
 
         return locations
     }
 
     const petportraits = (
-        <>
-            <img src={PetPortrait} />
-        </>
+        <div className="flex">
+            <img src={PetPortrait} className="h-[20vh] w-auto object-contain" alt="Pet Portrait" />
+            <span className="pt-[25%] px-3 text-2xl"> Pet Portraits </span>
+        </div>
     );
 
     const fanart = (
-        <>
-            <img src={Fanart} />
-        </>
+        <div className="flex">
+            <img src={Fanart} className="h-[20vh] w-auto object-contain" alt="Fan Art" />
+            <span className="pt-[25%] px-3 text-2xl"> Fanart </span>
+        </div>   
     );
 
     const comissions = (
-        <>
-            <img src={Comissions} />
-        </>
+        <div className="flex">
+            <img src={Comissions} className="h-[20vh] w-auto object-contain" alt="Commissions" />
+            <span className="pt-[25%] px-3 text-2xl"> Comissions </span>
+        </div>
     );
 
     const pplife = (
-        <>
-            <img src={PPLife} />
-        </>
+        <div className="flex">
+            <img src={PPLife} className="h-[20vh] w-auto object-contain" alt="Passenger Princess Life" />
+            <span className="text-wrap w-7 pt-[25%] px-3 text-2xl"> Passenger Princess Life </span>
+        </div>
+        
     );
 
 
@@ -72,8 +74,11 @@ function SideNav() {
     }
 
     return (
-        <div>
-            {renderNav(location)}
+        <div className="fixed right-20 top-[30vh] z-10">
+            <span> </span>
+            <ul className="m-0 list-none items-center gap-3 p-0">
+                {renderNav(location)}
+            </ul>
         </div>
     );
 }
