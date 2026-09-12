@@ -1,6 +1,7 @@
 import SocialIcons from "./social-icons/SocialIcons";
 import {NameBanner} from '../../assets/assets'
 import { useLocation } from "react-router-dom";
+import LOCATION from "../../enum/Locations";
 import { PostageSquiggly, PetPortrait, Comissions, Fanart, PPLife } from "../../assets/assets";
 
 type HeaderHomeProps = {
@@ -89,13 +90,7 @@ function HeaderHome({ isPostageHidden }: HeaderHomeProps) {
         </>
     );
 
-    const LOCATION = {
-        HOME :'/',
-        PET_PORTRAITS : '/petportraits',
-        FANART : '/fanart',
-        COMISSIONS : '/comissions',
-        PPLIFE : '/passengerprincesslife'
-    }
+    
 
     function getNextToStamp(location: ReturnType<typeof useLocation>){
         switch (location.pathname){
