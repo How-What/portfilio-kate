@@ -5,7 +5,7 @@ import SideNav from "../../sidenav/sidenav"
 function FanartPage (){
     return(
         <div className="container mx-auto">
-            <HeaderHome/>
+            <HeaderHome />
             <SideNav/>
             <div className="mt-15">
                 <h1>

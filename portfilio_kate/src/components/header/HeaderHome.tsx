@@ -60,7 +60,7 @@ function HeaderHome({ isPostageHidden }: HeaderHomeProps) {
     );
 
     const noStamp = (
-        <div className="box-border h-[100%] border-4 border-gray-300 text-center">
+        <div className="box-border h-40 w-30 border-4 border-gray-300 text-center ">
             <p className="mt-[33%] text-lg font-mono">postage required</p>
         </div>
             
@@ -155,14 +155,12 @@ function HeaderHome({ isPostageHidden }: HeaderHomeProps) {
                     </div>
                 </div>
                 <div className="flex col-span-1">
-                    <div className={`h-40 w-30 text-center stamp-frame ${isPostageHidden ? 'postage-hidden' : ''}`}>
+                    <div className={`h-53 w-40 text-center stamp-frame ${isPostageHidden ? 'postage-hidden ' : ''}`}>
                         {getStampType(location)}
                     </div>
                 </div>   
             </div>
-             
         </div>
-        
     );
 }
 

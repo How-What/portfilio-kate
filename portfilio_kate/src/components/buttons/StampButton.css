@@ -4,7 +4,8 @@
 }
 
 .postage-hidden {
-  animation: postage-fade-out 300ms ease-in forwards;
+  /* animation: postage-fade-out 300ms ease-in forwards; */
+  opacity: 0;
 }
 
 @keyframes postage-fade-out {
