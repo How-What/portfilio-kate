@@ -1,8 +1,10 @@
 import SocialIcons from "./social-icons/SocialIcons";
 import {NameBanner} from '../../assets/assets'
 import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import LOCATION from "../../enum/Locations";
 import { PostageSquiggly, PetPortrait, Comissions, Fanart, PPLife } from "../../assets/assets";
+import "./HeaderHome.css";
 
 type HeaderHomeProps = {
     isPostageHidden?: boolean;
@@ -10,6 +12,23 @@ type HeaderHomeProps = {
 
 function HeaderHome({ isPostageHidden }: HeaderHomeProps) {
     const location = useLocation();
+    const isHome = location.pathname === LOCATION.HOME;
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        if (isHome) {
+            setIsScrolled(false);
+            return;
+        }
+
+        function handleScroll() {
+            setIsScrolled(window.scrollY > 24);
+        }
+
+        handleScroll();
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [isHome]);
 
     const aboutme = (
         <>
@@ -127,7 +146,7 @@ function HeaderHome({ isPostageHidden }: HeaderHomeProps) {
     
 
 	return (
-        <div className="h-[15vh] mt-15">
+    <div className={`header-home ${isScrolled ? "header-home--scrolled" : ""}`}>
             <div className="grid h-full grid-cols-8 grid-rows-1 gap-4">
                 <div className="col-span-5 flex justify-start">
                     <div className="flex h-full flex-col justify-between px-4">

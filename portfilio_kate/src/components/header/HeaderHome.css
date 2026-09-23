@@ -1,0 +1,40 @@
+.header-home {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	height: 15vh;
+	margin-top: 3.75rem;
+	transition: height 220ms ease, margin-top 220ms ease;
+}
+
+.header-home > .grid {
+	transition: gap 220ms ease;
+}
+
+.header-home .stamp-frame {
+	transition: height 220ms ease, width 220ms ease, transform 220ms ease;
+}
+
+.header-home--scrolled {
+	height: 9vh;
+	margin-top: 1rem;
+}
+
+.header-home--scrolled .stamp-frame {
+	height: 8rem;
+	width: 6rem;
+}
+
+.header-home--scrolled img {
+	max-height: 6vh;
+}
+
+.header-home--scrolled .text-lg {
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+}
+
+.header-home--scrolled .text-2xl {
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+}

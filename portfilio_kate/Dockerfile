@@ -57,16 +57,16 @@ ENV NODE_ENV production
 USER node
 
 # Copy package.json so that package manager commands can be used.
-COPY package.json .
+COPY --chown=node:node package.json .
 
-# Copy the production dependencies from the deps stage and also
-# the built application from the build stage into the image.
-COPY --from=deps /usr/src/app/node_modules ./node_modules
-COPY --from=build /usr/src/app/. ./.
+# Copy the development dependencies used by the Vite dev server and the
+# application files into the image with ownership for the non-root user.
+COPY --from=build --chown=node:node /usr/src/app/node_modules ./node_modules
+COPY --from=build --chown=node:node /usr/src/app/. ./.
 
 
 # Expose the port that the application listens on.
 EXPOSE 9000
 
-# Run the application.
-CMD npm run
+# Run the application and listen on the container network interface.
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
